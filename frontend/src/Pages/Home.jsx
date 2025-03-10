@@ -6,18 +6,44 @@ import Posts from '../Components/Posts';
 
 const Home = () => {
     return (
-        <div className="flex bg-black min-h-screen w-screen overflow-hidden justify-center ">
+        <div className="flex min-h-screen w-auto bg-black  ml-16">
+            {/* Sidebar Navbar */}
             <Navbar />
-            <div className="flex-1 w-full flex flex-col  border-red-400 border-solid border-3 px-4 ">
-              
+            
+            {/* Main Content */}
+            <div className="flex-1 flex flex-col border-red-700 border-solid border-7 p-2">
                 <Search />
                 <Banner />
-                <Posts/>
+                <Posts />
             </div>
         </div>
     );
 };
 
-
-
 export default Home;
+
+//
+// import React from 'react';
+// import Navbar from '../Components/Navbar';
+// import Search from '../Components/Search';
+// import Banner from '../Components/Banner';
+// import Posts from '../Components/Posts';
+
+// const Home = () => {
+//     return (
+//         <div className="flex bg-slate-500 min-h-screen overflow-hidden">
+//             {/* Fixed Navbar */}
+//             <Navbar />
+            
+//             {/* Main Content - Takes Full Width Minus Navbar */}
+//             <div className="flex-1 flex flex-col ml-16 h-screen overflow-y-auto p-4">
+//                 <Search />
+//                 <Banner />
+//                 <Posts />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default Home;
+
