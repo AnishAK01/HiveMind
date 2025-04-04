@@ -6,7 +6,7 @@ import Posts from '../Components/Posts';
 import PostsDb from '../imageDB';
 const Home = () => {
     return (
-        <div className="flex min-h-screen w-auto bg-blue-800  ml-16">
+        <div className="flex min-h-screen w-auto  ml-16">
             {/* Sidebar Navbar */}
             <Navbar />
             

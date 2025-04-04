@@ -1,2 +1,6 @@
 
 @plugin "daisyui";
+
+body{
+    background-color: #F3EFD6;
+}
