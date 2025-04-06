@@ -4,6 +4,7 @@ import Search from '../Components/Search';
 import Banner from '../Components/Banner';
 import Posts from '../Components/Posts';
 import PostsDb from '../imageDB';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const Home = () => {
     return (
         <div className="flex min-h-screen w-auto  ml-16">
@@ -12,7 +13,12 @@ const Home = () => {
             
             {/* Main Content */}
             <div className="flex-1 flex flex-col border-red-700 border-solid border-7 p-2">
-                <Search />
+                <span className='w-11/12 flex fixed items-center justify-evenly  '>
+               
+                     <Search />
+                     <NotificationsIcon/>
+                </span>
+               
                 <Banner />
                 <Posts PostsDb={PostsDb}/>
             </div>
