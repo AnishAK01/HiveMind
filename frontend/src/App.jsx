@@ -8,7 +8,7 @@ import Home from './Pages/Home'
 import Explore from './Pages/Explore'
 import PostInfo from './Pages/PostInfo'
 import Navbar from './Components/Navbar'
-
+import DribbblePostDetail from './Pages/DribblePostInfo'
 function App() {
 
   return (
@@ -21,6 +21,8 @@ function App() {
   <Route path='/dribble' element={<Dribble/>} />
   <Route path='/' element={<Home/>} />
 <Route  path = '/postinfo' element ={<PostInfo/>} />
+<Route path="/dribble" element={<Dribble />} />
+<Route path="/dribble/post" element={<DribbblePostDetail />} />
   </Routes>
   </BrowserRouter>
    

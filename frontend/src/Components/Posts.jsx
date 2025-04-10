@@ -37,7 +37,8 @@ const Posts = ({ PostsDb }) => {
                 {PostsDb.map((img, idx) => (
                   
                    
-                   <div key={idx} className="relative group rounded-lg overflow-hidden shadow-lg" onClick={() => navigate('/postinfo')} >
+                  <div key={idx} className="relative group rounded-lg overflow-hidden shadow-lg" onClick={() => navigate('/postinfo', { state: { post: img } })}>
+
                         <img
                             src={img.url}
                             alt={`Post ${idx}`}

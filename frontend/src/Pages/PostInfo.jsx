@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PostInfo = () => {
   const [liked, setLiked] = useState(false);
@@ -7,7 +7,9 @@ const PostInfo = () => {
   const [bookmarked, setBookmarked] = useState(false);
 
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const { post } = location.state || {};
+  
   const handleLike = () => {
     setLiked(!liked);
     setShowHeart(true);
@@ -33,14 +35,14 @@ const PostInfo = () => {
     {/* Left Profile/Details Section */}
     <div className='flex flex-col justify-around h-96'>
       <div className='h-12 flex items-center justify-around w-56'>
-        <img src='/assets/Posts/p2.jpg' alt="profile" className='rounded-full h-full w-12' />
-        <h3 className='text-md font-semibold'>Name</h3>
+        {/* <img src='/assets/Posts/p2.jpg' alt="profile" className='rounded-full h-full w-12' />
+        <h3 className='text-md font-semibold'>Name</h3> */}
+        <img src={post?.profilePic} alt="profile" className='rounded-full h-full w-12' />
+        <h3>{post?.name}</h3>
       </div>
 
       <div className='w-56 h-72 p-2 overflow-y-auto'>
-        <p className="text-sm">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum quos, ut odio pariatur non laborum similique hic quae esse officia exercitationem nihil
-        </p>
+      <p>{post?.description}</p>
       </div>
 
       <div className='w-56 h-12 p-2'>
@@ -56,12 +58,9 @@ const PostInfo = () => {
     </div>
 
     {/* Image Section */}
-    <div className="flex justify-center items-center w-96 h-96 rounded-3xl overflow-hidden relative">
-      <img
-        src="/assets/Posts/p7.jpg"
-        alt=""
-        className="object-contain max-h-full max-w-full rounded-3xl"
-      />
+    <div className="flex justify-center items-center w-96 h-96 overflow-hidden relative p-1">
+    <img src={post?.url || '/assets/Posts/default.jpg'} alt="post" className="...  rounded-3xl " />
+
       {showHeart && (
         <div className="absolute text-4xl animate-heart-pop left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           ❤️
