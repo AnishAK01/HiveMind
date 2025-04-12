@@ -47,13 +47,13 @@ import { useNavigate } from 'react-router-dom';
     };
   
     const menuItems = [
-        { icon:    <CottageIcon style={{ fontSize: '28px' }} /> , label: 'Home', key: 'hoveHome',path:'/' },
-        { icon: <ExploreIcon style={{ fontSize: '28px' }} />, label: 'Explore', key: 'hovExp',path:'/explore' },
-        { icon: <AddCircleIcon style={{ fontSize: '28px' }} />, label: 'Post', key: 'hovPost' },
-        { icon: <DashboardIcon style={{ fontSize: '28px' }}  />, label: 'Tabs', key: 'hovTabs' ,path:'/dribble' },
-        { icon: <SendIcon style={{ fontSize: '28px' }} />, label: 'Messages', key: 'hovMess', },
-        { icon: <Face3Icon style={{ fontSize: '28px' }} />, label: 'Profile', key: 'hovProf' ,path:'/profilr'},
-        { icon: <SettingsIcon style={{ fontSize: '28px' }} />, label: 'Settings', key: 'hovSett' },
+        { icon:    <img src=" \Minor project\homenav.png" alt="" /> , label: 'Home', key: 'hoveHome',path:'/' },
+        { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Explore', key: 'hovExp',path:'/explore' },
+        { icon: <img src=" \Minor project\plus.png" alt="" /> , label: 'Post', key: 'hovPost' },
+        { icon: <img src=" \Minor project\menunav.png" alt="" /> , label: 'Tabs', key: 'hovTabs' ,path:'/dribble' },
+        { icon: <img src=" \Minor project\send.png" alt="" /> , label: 'Messages', key: 'hovMess', },
+        { icon: <img src=" \Minor project\usernav.png" alt="" /> , label: 'Profile', key: 'hovProf' ,path:'/profile'},
+        { icon: <img src=" \Minor project\settingnav.png" alt="" /> , label: 'Settings', key: 'hovSett' },
       ];
       const navigate = useNavigate();
 
@@ -62,7 +62,7 @@ import { useNavigate } from 'react-router-dom';
       <div className="h-screen fixed left-0 top-0 w-16 p-2 py-4 flex flex-col bg-white text-white z-50">
         <div className="logo p-2 flex items-center justify-center">
           <h1 className="text-blue-700">
-            <FlutterDashIcon style={{ fontSize: '35px' }} />
+          <img src=" \Minor project\cool.png" alt="" className='h-12 '/> 
           </h1>
         </div>
   
