@@ -15,7 +15,7 @@ const Home = () => {
             <div className="flex-1 flex flex-col border-red-700 border-solid border-7 p-2">
                 <span className='w-11/12 flex fixed items-center justify-evenly  '>
                
-                     <Search />
+                     <Search  />
                      <NotificationsIcon/>
                 </span>
                

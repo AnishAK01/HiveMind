@@ -30,7 +30,7 @@ const PostInfo = () => {
 </button>
 
 <div className="h-5/6">
-  <div className="w-2/4 m-auto flex h-full gap-0 relative border border-gray-300 rounded-2xl p-4">
+  <div className="w-2/4 m-auto flex h-full gap-0 relative border border-gray-300 rounded-2xl p-4 ">
 
     {/* Left Profile/Details Section */}
     <div className='flex flex-col justify-around h-96'>
@@ -59,7 +59,7 @@ const PostInfo = () => {
 
     {/* Image Section */}
     <div className="flex justify-center items-center w-96 h-96 overflow-hidden relative p-1">
-    <img src={post?.url || '/assets/Posts/default.jpg'} alt="post" className="...  rounded-3xl " />
+    <img src={post?.url || '/assets/Posts/default.jpg'} alt="post" className="...  rounded-3xl h-full w-full " />
 
       {showHeart && (
         <div className="absolute text-4xl animate-heart-pop left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -69,7 +69,7 @@ const PostInfo = () => {
     </div>
 
     {/* Action Icons */}
-    <div className='h-96 flex flex-col justify-around items-center gap-2'>
+    <div className='h-96 flex flex-col justify-around items-center gap-2 '>
       <button onClick={handleLike}>
         <img
           src={liked ? "/Minor project/love (1).png" : "/Minor project/love.png"}
