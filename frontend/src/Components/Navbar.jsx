@@ -51,7 +51,7 @@ import { useNavigate } from 'react-router-dom';
         { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Explore', key: 'hovExp',path:'/explore' },
         { icon: <img src=" \Minor project\plus.png" alt="" /> , label: 'Post', key: 'hovPost' },
         { icon: <img src=" \Minor project\menunav.png" alt="" /> , label: 'Tabs', key: 'hovTabs' ,path:'/dribble' },
-        { icon: <img src=" \Minor project\send.png" alt="" /> , label: 'Messages', key: 'hovMess', },
+        { icon: <img src=" \Minor project\send.png" alt="" /> , label: 'Messages', key: 'hovMess', path:'/message' },
         { icon: <img src=" \Minor project\usernav.png" alt="" /> , label: 'Profile', key: 'hovProf' ,path:'/profile'},
         { icon: <img src=" \Minor project\settingnav.png" alt="" /> , label: 'Settings', key: 'hovSett' },
       ];

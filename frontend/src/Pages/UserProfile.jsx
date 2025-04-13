@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import StackedGallery from '../Components/CreatedUI'
+import Navbar from '../Components/Navbar'
 
 const UserProfile = () => {
   const [activeSection, setActiveSection] = useState(null)
@@ -10,6 +11,7 @@ const UserProfile = () => {
 
   return (
     <div className=' w-5/6 h-auto m-auto ml-32'>
+      <Navbar/>
       {/* USER INFO */}
       <div className="usersec border flex justify-evenly p-8 items-center">
         <span className='flex'>

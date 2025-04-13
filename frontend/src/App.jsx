@@ -9,12 +9,14 @@ import Explore from './Pages/Explore'
 import PostInfo from './Pages/PostInfo'
 import Navbar from './Components/Navbar'
 import DribbblePostDetail from './Pages/DribblePostInfo'
+import Chat from './Pages/Message'
+import Auth from './Pages/Auth'
 function App() {
 
   return (
     <>
       <BrowserRouter>
-<Navbar/>
+
 <Routes>
   <Route path='/explore' element={<Explore/>}/>
   <Route path='/profile' element={<UserProfile/>} />
@@ -23,6 +25,8 @@ function App() {
 <Route  path = '/postinfo' element ={<PostInfo/>} />
 <Route path="/dribble" element={<Dribble />} />
 <Route path="/dribble/post" element={<DribbblePostDetail />} />
+<Route path="/message" element={<Chat/>} />
+<Route path="/auth" element={<Auth/>} />
   </Routes>
   </BrowserRouter>
    
