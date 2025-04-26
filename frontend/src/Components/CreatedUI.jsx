@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PostsDb } from '../imageDB';
+import { PostsDb } from '../Dbs/imageDB';
 
 const StackedGallery = () => {
   const [expanded, setExpanded] = useState(false);

@@ -48,7 +48,7 @@ import { useNavigate } from 'react-router-dom';
   
     const menuItems = [
         { icon:    <img src=" \Minor project\homenav.png" alt="" /> , label: 'Home', key: 'hoveHome',path:'/' },
-        { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Explore', key: 'hovExp',path:'/explore' },
+        { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Explore', key: 'hovExp',path:'/pinttab' },
         { icon: <img src=" \Minor project\plus.png" alt="" /> , label: 'Post', key: 'hovPost' },
         { icon: <img src=" \Minor project\menunav.png" alt="" /> , label: 'Tabs', key: 'hovTabs' ,path:'/dribble' },
         { icon: <img src=" \Minor project\send.png" alt="" /> , label: 'Messages', key: 'hovMess', path:'/message' },

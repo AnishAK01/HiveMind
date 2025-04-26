@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BannerDb from '../bannerDB';
+import BannerDb from '../Dbs/bannerDB';
 import { ChevronLeft, ChevronRight, Bookmark } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
