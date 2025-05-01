@@ -7,6 +7,7 @@ import PostsDb from "../Dbs/imageDB";
 import ImageSlider from "../Components/PintSlider";
 import { Link, Links } from "react-router-dom";
 import AboutUs from "../Components/AboutUs";
+import LoginIcon from '@mui/icons-material/Login';
 
 
 const Home = () => {
@@ -18,14 +19,16 @@ const Home = () => {
             {/* Main Content */}
             <div className="flex-1 flex flex-col border-red-700 border-solid border-7 p-2">
                 <span className='w-11/12 flex fixed items-center justify-evenly'>
-                    <Search />
-                    <NotificationsIcon />
+                    <Search  />
+                    <span className="backdrop-blur-sm bg-white/30  p-1  rounded-lg" ><NotificationsIcon/>
+                   <Link to={'/auth'} className='ml-4' > <LoginIcon />
+                   </Link>  </span>
                 </span>
 
                 <Banner />
 
                 <div className="flex-col py-4">
-                    <div className="flex justify-center gap-4 border-2 border-black rounded-xl m-4 p-4 bg-white bg-opacity-50 backdrop-blur-md shadow-md">
+                    <div className="flex justify-center gap-4  rounded-xl m-4 p-4 bg-white bg-opacity-50 backdrop-blur-md shadow-md">
                         <button className="px-6 py-2 rounded-full font-semibold bg-black text-white hover:bg-opacity-30 hover:backdrop-blur-lg hover:text-black transition duration-300">
                             Pins
                         </button>
@@ -57,7 +60,7 @@ const Home = () => {
                             <h1 className="text-2xl font-bold mb-4 text-gray-800">User Interfaces</h1>
                             {/* Another carousel can come here */}
                             <ImageSlider images={PostsDb} />
-                            <Link to="/pinttab">
+                            <Link to="/dribble">
                              <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition font-semibold m-2">
                                     More Posts
                                 </button>

@@ -14,9 +14,11 @@ import Home from './Pages/Home'
 import Collab from './Pages/Collab'
 import Loader from './Components/Loader'
 import ScrollToTop from './Components/ScrolltoTop'
+import ImageGallery from './Components/Filteredgallery'
 function App() {
 
   const [loading, setLoading] = useState(true)
+
 
   useEffect(() => {
     // Simulate loading time (2 seconds)
@@ -44,6 +46,7 @@ function App() {
 <Route path="/dribble" element={<Dribble />} />
 <Route path="/dribble/post" element={<DribbblePostDetail />} />
 <Route path="/message" element={<Chat/>} />
+<Route path="/gallery" element={<ImageGallery />} />
 <Route path="/auth" element={<Auth/>} />
   </Routes>
   </BrowserRouter>

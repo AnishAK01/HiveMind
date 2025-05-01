@@ -48,9 +48,9 @@ import { useNavigate } from 'react-router-dom';
   
     const menuItems = [
         { icon:    <img src=" \Minor project\homenav.png" alt="" /> , label: 'Home', key: 'hoveHome',path:'/' },
-        { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Explore', key: 'hovExp',path:'/pinttab' },
+        { icon: <img src=" \Minor project\browser.png" alt="" /> , label: 'Pictures', key: 'hovExp',path:'/pinttab' },
         { icon: <img src=" \Minor project\plus.png" alt="" /> , label: 'Post', key: 'hovPost' },
-        { icon: <img src=" \Minor project\menunav.png" alt="" /> , label: 'Tabs', key: 'hovTabs' ,path:'/dribble' },
+        { icon: <img src=" \Minor project\menunav.png" alt="" /> , label: 'UI', key: 'hovTabs' ,path:'/dribble' },
         { icon: <img src=" \Minor project\send.png" alt="" /> , label: 'Messages', key: 'hovMess', path:'/message' },
         { icon: <img src=" \Minor project\usernav.png" alt="" /> , label: 'Profile', key: 'hovProf' ,path:'/profile'},
         { icon: <img src=" \Minor project\settingnav.png" alt="" /> , label: 'Settings', key: 'hovSett' },
@@ -62,7 +62,7 @@ import { useNavigate } from 'react-router-dom';
       <div className="h-screen fixed left-0 top-0 w-16 p-2 py-4 flex flex-col bg-white text-white z-50">
         <div className="logo p-2 flex items-center justify-center">
           <h1 className="text-blue-700">
-          <img src=" \Minor project\cool.png" alt="" className='h-12 '/> 
+          <img src=" \Minor project\logo.png" alt="" className='h-12 '/> 
           </h1>
         </div>
   

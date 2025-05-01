@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Heart, Eye, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '../Components/Navbar';
@@ -55,9 +55,11 @@ const DribbblePostDetail = () => {
 
         {/* Action Buttons */}
         <div className="mt-6 flex gap-4">
+          <Link to='/message'>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow">
-            Appreciate
+            Chat
           </button>
+          </Link>
           <button className="border border-gray-300 px-5 py-2 rounded-lg text-gray-700 hover:bg-gray-100">
             Follow Team
           </button>
