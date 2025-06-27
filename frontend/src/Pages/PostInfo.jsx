@@ -88,7 +88,7 @@ const PostInfo = () => {
           </div>
 
           {/* Image Preview Section */}
-          <div className="relative w-full md:w-2/4 flex justify-center items-center p-2 rounded-2xl border-2">
+          <div className="relative w-full md:w-2/4 flex justify-center items-center p-2 rounded-2xl border">
             <img
               src={post?.url || '/assets/Posts/default.jpg'}
               alt="post"
@@ -102,7 +102,7 @@ const PostInfo = () => {
             )}
 
             {/* Action Icons */}
-            <div className="absolute top-1/2 transform -translate-y-1/2 right-0 flex flex-col items-center gap-4">
+            <div className="absolute top-1/2 transform -translate-y-1/2 right-0 flex flex-col items-center gap-4 pr-5">
               <button onClick={handleLike}>
                 <img
                   src={liked ? "/Minor project/love (1).png" : "/Minor project/love.png"}

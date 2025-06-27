@@ -1,6 +1,6 @@
-import { useState , useEffect} from 'react'
+import { useState , useEffect,useContext} from 'react'
 import reactLogo from './assets/react.svg'
-import {BrowserRouter, Routes , Route} from "react-router-dom"
+import {BrowserRouter, Routes , Route,useNavigate} from "react-router-dom"
 import Dribble from './Pages/Dribble'
 import UserProfile from './Pages/UserProfile'
 import './App.css'
@@ -15,11 +15,14 @@ import Collab from './Pages/Collab'
 import Loader from './Components/Loader'
 import ScrollToTop from './Components/ScrolltoTop'
 import ImageGallery from './Components/Filteredgallery'
+import { AuthContext } from './context/AuthContext'
+import axios from 'axios';
+import AuthRedirectHandler from './utils/AuthRedirectHandler'
 function App() {
 
   const [loading, setLoading] = useState(true)
 
-
+ 
   useEffect(() => {
     // Simulate loading time (2 seconds)
     const timer = setTimeout(() => {
@@ -36,6 +39,7 @@ function App() {
     <>
       <BrowserRouter>
 <ScrollToTop/>
+<AuthRedirectHandler/>
 <Routes>
   <Route path='/profile' element={<UserProfile/>} />
   <Route path='/collabs' element={<Collab/>} />

@@ -1,5 +1,50 @@
 export const uiDb = [
-    {
+    
+      {
+        image: "/UI Post/7a.png",
+        image2: "/UI Post/7b.png",
+        image3: "/UI Post/7c.png",
+        team: "Nixtio",
+        teamType: "TEAM",
+        likes: 304,
+        views: "67.9k"
+      },
+      {
+        image: "/UI Post/ui6a.png",
+        image2: "/UI Post/ui6a.png",
+        image3: "//UI Post/ui6a.png",
+        team: "Nixtio",
+        teamType: "TEAM",
+        likes: 304,
+        views: "67.9k"
+      },
+      {
+        image: "/UI Post/ui5b.png",
+        image2: "/UI Post/ui5b.png",
+        image3: "//UI Post/ui5b.png",
+        team: "Nixtio",
+        teamType: "TEAM",
+        likes: 304,
+        views: "67.9k"
+      },
+      {
+        image: "/UI Post/ui5a.png",
+        image2: "/UI Post/ui5a.png",
+        image3: "/UI Post/ui5a.png",
+        team: "Nixtio",
+        teamType: "TEAM",
+        likes: 304,
+        views: "67.9k"
+      },
+      {
+        image: "/UI Post/ui5c.png",
+        image2: "/UI Post/ui5c.png",
+        image3: "//UI Post/ui5c.png",
+        team: "Nixtio",
+        teamType: "TEAM",
+        likes: 304,
+        views: "67.9k"
+      },{
         image: "/UI Post/ui1a.jpg",
         image2: "/UI Post/ui1b.jpg",
         image3: "/UI Post/ui1c.jpg",
@@ -27,70 +72,27 @@ export const uiDb = [
         views: "67.9k"
       },
       {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
+        image: "/UI Post/8.png",
+        image2: "/UI Post/8.png",
+        image3: "//UI Post/8.png",
         team: "Nixtio",
         teamType: "TEAM",
         likes: 304,
         views: "67.9k"
       },
       {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
+        image: "/UI Post/ui5a.png",
+        image2: "/UI Post/ui5a.png",
+        image3: "//UI Post/ui5a.png",
         team: "Nixtio",
         teamType: "TEAM",
         likes: 304,
         views: "67.9k"
       },
       {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
-        team: "Nixtio",
-        teamType: "TEAM",
-        likes: 304,
-        views: "67.9k"
-      },
-      {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
-        team: "Nixtio",
-        teamType: "TEAM",
-        likes: 304,
-        views: "67.9k"
-      },
-      {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
-        team: "Nixtio",
-        teamType: "TEAM",
-        likes: 304,
-        views: "67.9k"
-      },
-      {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
-        team: "Nixtio",
-        teamType: "TEAM",
-        likes: 304,
-        views: "67.9k"
-      },
-      {
-        image: "/assets/Posts/p3.jpg",
-        image2: "/assets/Posts/p7.jpg",
-        image3: "/assets/Posts/p11.jpg",
-        team: "Nixtio",
-        teamType: "TEAM",
-        likes: 304,
-        views: "67.9k"
-      },
-      {
-        image: "/UI Post/UI1.webp",
+        image: "/UI Post/7a.png",
+        image2: "/UI Post/7b.png",
+        image3: "/UI Post/7c.png",
        
         team: "Nixtio",
         teamType: "TEAM",
