@@ -3,4 +3,5 @@
 
 # JWT_SECRET = wingardiumleviosa
 
-.env
+/backend/.env
+
