@@ -40,7 +40,7 @@ const Posts = ({ PostsDb }) => {
                   <div key={idx} className="relative group rounded-lg overflow-hidden shadow-lg" onClick={() => navigate('/postinfo', { state: { post: img } })}>
 
                         <img
-                            src={img.url}
+                            src={`http://localhost:5000${img.url}`}
                             alt={`Post ${idx}`}
                             className="w-full h-auto rounded-md"
                         />
@@ -57,6 +57,9 @@ const Posts = ({ PostsDb }) => {
                             >
                                 {savedPosts.includes(idx) ? <TurnedInIcon /> : <TurnedInNotIcon />}
                             </button>
+                            <p className="absolute bottom-1 left-1 text-xs bg-black bg-opacity-50 text-white px-2 py-1 rounded">
+  {img.createdBy?.name}
+</p>
                         </div>
                     </div> 
                 ))}

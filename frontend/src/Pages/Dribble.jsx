@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Banner from '../Components/Banner'
 import Search from '../Components/Search'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -6,6 +6,13 @@ import uiDb from '../Dbs/uiDb';
 import DribbbleCard from '../Components/DribbleCard';
 import Navbar from '../Components/Navbar';
 const Dribble = () => {
+  useEffect(() => {
+  const fetchPosts = async () => {
+    const res = await API.get("/posts/category/ui");
+    setPosts(res.data);
+  };
+  fetchPosts();
+}, []);
   return (
     <div className="flex min-h-screen w-auto  ml-16">
       {/* Sidebar Navbar */}

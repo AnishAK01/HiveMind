@@ -8,9 +8,18 @@ import ImageSlider from "../Components/PintSlider";
 import { Link, Links } from "react-router-dom";
 import AboutUs from "../Components/AboutUs";
 import LoginIcon from '@mui/icons-material/Login';
-
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+     const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/auth");
+  };
     return (
         <div className="flex min-h-screen w-auto ml-16">
             {/* Sidebar Navbar */}
@@ -21,7 +30,7 @@ const Home = () => {
                 <span className='w-11/12 flex fixed items-center justify-evenly'>
                     <Search  />
                     <span className="backdrop-blur-sm bg-white/30  p-1  rounded-lg" ><NotificationsIcon/>
-                   <Link to={'/auth'} className='ml-4' > <LoginIcon />
+                   <Link to={'/auth'} className='ml-4'  onClick={handleLogout} > <LoginIcon />
                    </Link>  </span>
                 </span>
 

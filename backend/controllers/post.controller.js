@@ -1,12 +1,13 @@
 const Post = require("../models/post.model");
 
 exports.createPost = async (req, res) => {
-  const { url, name, tags, description } = req.body;
+  const { url, name, tags, description, category } = req.body;
   try {
     const post = await Post.create({
       url,
       name,
       tags,
+           category,
       description,
       createdBy: req.user._id
     });
@@ -24,7 +25,26 @@ exports.getAllPosts = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Get posts by category
+exports.getPostsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const posts = await Post.find({ category }).populate("createdBy", "name profilePic");
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
+// Get posts by user
+exports.getPostsByUser = async (req, res) => {
+  try {
+    const posts = await Post.find({ createdBy: req.user._id }).populate("createdBy", "name profilePic");
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 exports.likePost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

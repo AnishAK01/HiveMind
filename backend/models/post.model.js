@@ -9,6 +9,11 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+  type: String,
+  enum: ["ui", "pic"],
+  required: true
+},
   tags: [{
     type: String
   }],

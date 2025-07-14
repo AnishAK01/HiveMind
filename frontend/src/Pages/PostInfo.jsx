@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import API from '../utils/axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import DownloadIcon from '@mui/icons-material/Download';
 import TurnedInNotIcon from '@mui/icons-material/TurnedInNot';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import Navbar from '../Components/Navbar';
-import PostsDb from '../Dbs/imageDB';
+// import PostsDb from '../Dbs/imageDB';
 import Masonry from "react-masonry-css";
 
 const PostInfo = () => {
@@ -38,10 +40,24 @@ const PostInfo = () => {
     }
   };
 
-  const relatedPosts = PostsDb.filter(p =>
-    p.url !== post?.url &&
-    post?.tags?.some(tag => p.tags?.includes(tag))
-  );
+ const [relatedPosts, setRelatedPosts] = useState([]);
+
+useEffect(() => {
+  const fetchRelated = async () => {
+    if (!post) return;
+    try {
+      const res = await API.get(`/posts/category/${post.category}`);
+      const filtered = res.data.filter(p =>
+        p._id !== post._id &&
+        post?.tags?.some(tag => p.tags?.includes(tag))
+      );
+      setRelatedPosts(filtered);
+    } catch (err) {
+      console.error("Failed to fetch related posts:", err);
+    }
+  };
+  fetchRelated();
+}, [post]);
 
   return (
     <div className="w-full md:w-11/12 m-auto mt-16 relative">
@@ -50,7 +66,7 @@ const PostInfo = () => {
       {/* Go Back Button */}
       <button
         onClick={() => navigate('/')}
-        className="absolute top-4 left-6 rounded-full p-2 shadow-md hover:bg-gray-200 transition"
+        className="absolute top-4 left-6 rounded-full z-20 p-2 shadow-md hover:bg-gray-200 transition"
       >
         <img src="/Minor project/arrow-left.png" alt="Back" className="w-5 h-5" />
       </button>
@@ -90,10 +106,10 @@ const PostInfo = () => {
           {/* Image Preview Section */}
           <div className="relative w-full md:w-2/4 flex justify-center items-center p-2 rounded-2xl border">
             <img
-              src={post?.url || '/assets/Posts/default.jpg'}
-              alt="post"
-              className="rounded-2xl object-contain w-auto max-h-[500px] mx-auto "
-            />
+  src={`http://localhost:5000${post?.url}` || '/assets/Posts/default.jpg'}
+  alt="post"
+  className="rounded-2xl object-contain w-auto max-h-[500px] mx-auto "
+/>
 
             {showHeart && (
               <div className="absolute text-5xl animate-heart-pop text-red-500">
