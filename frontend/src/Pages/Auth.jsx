@@ -99,7 +99,7 @@
 // export default Auth;
 
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../context/AuthContext";
 import API from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 

@@ -5,38 +5,40 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image2: String,
+  image3: String,
   name: {
     type: String,
     required: true,
   },
   category: {
-  type: String,
-  enum: ["ui", "pic"],
-  required: true
-},
-  tags: [{
-    type: String
-  }],
-  description: {
-    type: String
+    type: String,
+    enum: ["ui", "pic"],
+    required: true,
   },
+  tags: [String],
+  description: String,
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true
+    required: true, // ✅ Keep this since you already use `protect`
   },
   likes: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   }],
   bookmarks: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   }],
+  views: {
+    type: Number,
+    default: 0,
+  },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Post", postSchema);

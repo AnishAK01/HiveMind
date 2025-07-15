@@ -8,38 +8,46 @@ const UploadModal = ({ onClose }) => {
     description: "",
     category: "ui",
   });
-  const [imageFile, setImageFile] = useState(null);
+
+  const [imageFiles, setImageFiles] = useState({
+    url: null,
+    image2: null,
+    image3: null,
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e) => {
-    setImageFile(e.target.files[0]);
+  const handleImageChange = (e) => {
+    const { name, files } = e.target;
+    setImageFiles((prev) => ({
+      ...prev,
+      [name]: files[0],
+    }));
   };
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!imageFile) {
-      alert("Please select an image.");
-      return;
-    }
 
     const data = new FormData();
     data.append("name", formData.name);
     data.append("tags", formData.tags);
     data.append("description", formData.description);
     data.append("category", formData.category);
-    data.append("image", imageFile);
+
+    if (imageFiles.url) data.append("image", imageFiles.url);
+    if (imageFiles.image2) data.append("image2", imageFiles.image2);
+    if (imageFiles.image3) data.append("image3", imageFiles.image3);
 
     try {
       await API.post("/posts/upload", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      alert("✅ Post uploaded!");
+      alert("✅ UI post uploaded!");
       onClose();
     } catch (error) {
-      console.error(error);
+      console.error("Upload error:", error);
       alert("❌ Upload failed");
     }
   };
@@ -47,53 +55,59 @@ const UploadModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-lg w-96 shadow-md">
-        <h2 className="text-xl font-semibold mb-4">Upload Image Post</h2>
+        <h2 className="text-xl font-semibold mb-4">Upload UI Post</h2>
         <form onSubmit={handleUpload} className="flex flex-col gap-3">
+          {/* Category Selector */}
           <div className="flex gap-2 justify-center mb-2">
             <button
               type="button"
-              onClick={() =>
-                setFormData({ ...formData, category: "ui" })
-              }
-              className={`px-4 py-1 rounded ${
-                formData.category === "ui"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200"
-              }`}
+              onClick={() => setFormData({ ...formData, category: "ui" })}
+              className={`px-4 py-1 rounded ${formData.category === "ui" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
             >
               UI
             </button>
             <button
               type="button"
-              onClick={() =>
-                setFormData({ ...formData, category: "pic" })
-              }
-              className={`px-4 py-1 rounded ${
-                formData.category === "pic"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200"
-              }`}
+              onClick={() => setFormData({ ...formData, category: "pic" })}
+              className={`px-4 py-1 rounded ${formData.category === "pic" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
             >
               Picture
             </button>
           </div>
 
+          {/* Inputs */}
           <input
             type="text"
             name="name"
-            placeholder="Image Name"
+            placeholder="Post Title / Name"
             className="p-2 border rounded"
             onChange={handleChange}
             required
           />
+
           <input
             type="file"
-            name="image"
+            name="url"
             accept="image/*"
             className="p-2 border rounded"
-            onChange={handleFileChange}
+            onChange={handleImageChange}
             required
           />
+          <input
+            type="file"
+            name="image2"
+            accept="image/*"
+            className="p-2 border rounded"
+            onChange={handleImageChange}
+          />
+          <input
+            type="file"
+            name="image3"
+            accept="image/*"
+            className="p-2 border rounded"
+            onChange={handleImageChange}
+          />
+
           <input
             type="text"
             name="tags"
@@ -101,12 +115,15 @@ const UploadModal = ({ onClose }) => {
             className="p-2 border rounded"
             onChange={handleChange}
           />
+
           <textarea
             name="description"
             placeholder="Description"
             className="p-2 border rounded"
             onChange={handleChange}
           />
+
+          {/* Actions */}
           <div className="flex justify-end gap-2">
             <button
               type="button"

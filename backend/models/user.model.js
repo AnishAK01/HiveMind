@@ -22,11 +22,12 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 
-  profilePic: {
+   profilePic: {
     type: String,
-    default: "/assets/profile-def.jpeg"
+    default: function () {
+      return `https://i.pravatar.cc/150?u=${this._id}`;
+    }
   },
-
   bio: {
     type: String,
     default: ""

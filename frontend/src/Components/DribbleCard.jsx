@@ -1,19 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DribbbleCard = ({ image, image2, image3, team, teamType, likes, views }) => {
+const DribbbleCard = ({ _id, url, image2, image3, name, description, likes = [], views = 0, teamType = "", ...rest }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate('/dribble/post', {
       state: {
-        image,
+        _id,
+        url,
         image2,
         image3,
-        team,
-        teamType,
+        name,
+        description,
         likes,
         views,
+        teamType,
+        ...rest
       },
     });
   };
@@ -24,15 +27,15 @@ const DribbbleCard = ({ image, image2, image3, team, teamType, likes, views }) =
       className="bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
     >
       <img
-        src={image}
+        src={`http://localhost:5000${url}`}
         alt="Main UI"
         className="w-full h-48 object-cover rounded-t-xl"
       />
       <div className="p-3">
-        <h3 className="text-sm font-semibold">{team}</h3>
-        <p className="text-xs text-gray-500">{teamType}</p>
+        <h3 className="text-sm font-semibold">{name}</h3>
+        <p className="text-xs text-gray-500">{teamType || 'UI Design'}</p>
         <p className="text-xs text-gray-600 mt-1">
-          {likes} ❤️ · {views} 👁️
+          {likes?.length || 0} ❤️ · {views || 0} 👁️
         </p>
       </div>
     </div>

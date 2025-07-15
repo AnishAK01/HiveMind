@@ -79,7 +79,7 @@ const UserProfile = () => {
         {/* Profile Image & Name */}
         <div className="flex flex-col items-center">
           <img
-            src={userData?.profilePic || "/assets/profile-def.jpeg"}
+            src={userData?.profilePic }
             alt="Profile"
             className="w-32 h-32 rounded-full shadow-lg object-cover mb-3"
           />
