@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Adjust if deploying
+  baseURL: "http://localhost:5000/api" || "https://hivemind-backend-g67z.onrender.com", // Adjust if deploying
 });
 
 // Add token to each request
