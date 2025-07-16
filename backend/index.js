@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.send("Welcome to Hivemind API");
 });
 app.use(cors({
-  origin: "http://localhost:5173" ||"https://hivemind-frontend.onrender.com", 
+  origin: "https://hivemind-frontend.onrender.com", 
   credentials: true
 }));
 
