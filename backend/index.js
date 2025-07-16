@@ -9,17 +9,18 @@ const userRoutes = require('./routes/user.routes');
 const path = require('path');
 
 dotenv.config();
+
+const app = express();
+app.use(cors());
 app.use(cors({
-  origin: "https://hivemind-frontend.onrender.com", 
+  origin: "http://localhost:5173"|| "https://hivemind-frontend.onrender.com", 
   credentials: true
 }));
-const app = express();
+app.use(express.json()); // Body parser
 
-app.use(express.json()); 
+connectDB(); // Connect to MongoDB
 
-connectDB();
-
-
+// Basic route
 app.get('/', (req, res) => {
   res.send("Welcome to Hivemind API");
 });
