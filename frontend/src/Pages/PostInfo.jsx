@@ -125,7 +125,7 @@ const PostInfo = () => {
           {/* Image Section */}
           <div className="relative w-full lg:w-2/3 flex justify-center items-center p-2 rounded-2xl border">
             <img
-              src={`http://localhost:5000${post?.url}` || '/assets/Posts/default.jpg'}
+              src={post?.url || '/assets/Posts/default.jpg'}
               alt="post"
               className="rounded-xl w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] object-contain"
             />

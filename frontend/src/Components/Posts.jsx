@@ -40,7 +40,7 @@ const Posts = ({ PostsDb }) => {
                   <div key={idx} className="relative group rounded-lg overflow-hidden shadow-lg" onClick={() => navigate('/postinfo', { state: { post: img } })}>
 
                         <img
-                            src={`http://localhost:5000${img.url}`}
+                          src={img?.url}
                             alt={`Post ${idx}`}
                             className="w-full h-auto rounded-md"
                         />

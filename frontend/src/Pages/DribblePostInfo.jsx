@@ -64,7 +64,7 @@ const DribbblePostDetail = () => {
           {imageList.map((img, idx) => (
             <img
               key={idx}
-              src={`http://localhost:5000${img}`}
+              src={img}
               className="w-[300px] snap-center rounded-xl object-cover"
               alt={`Design ${idx}`}
             />

@@ -1,4 +1,4 @@
-// index.js
+require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.send("Welcome to Hivemind API");
 });
 app.use(cors({
-  origin: "http://localhost:5173", // frontend Vite port
+  origin: "http://localhost:5173", 
   credentials: true
 }));
 

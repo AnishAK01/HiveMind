@@ -27,7 +27,7 @@ const DribbbleCard = ({ _id, url, image2, image3, name, description, likes = [],
       className="bg-white rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
     >
       <img
-        src={`http://localhost:5000${url}`}
+        src={url}
         alt="Main UI"
         className="w-full h-48 object-cover rounded-t-xl"
       />

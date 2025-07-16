@@ -1,6 +1,8 @@
 const express = require("express");
-const upload = require("../middlewares/upload.middleware");
+const upload = require("../middlewares/cloudinary.middlewareUpload");
 const Post = require("../models/post.model");
+const fs = require('fs'); 
+const cloudinary = require('../utils/cloudinary');
 const {
   createPost,
   getAllPosts,
@@ -20,7 +22,7 @@ router.post("/create", protect, createPost);
 router.put("/like/:id", protect, likePost);
 router.put("/bookmark/:id", protect, bookmarkPost);
 
-// ✅ UI/Pic post upload with 3 images
+
 router.post(
   "/upload",
   protect,
@@ -33,14 +35,26 @@ router.post(
     try {
       const { name, tags, description, category } = req.body;
 
+      const uploadToCloudinary = async (filePath) => {
+        const result = await cloudinary.uploader.upload(filePath, {
+          folder: "hivemind_posts",
+        });
+         // delete local file
+        return result.secure_url;
+      };
+
+      const imageUrl = req.files.image ? await uploadToCloudinary(req.files.image[0].path) : null;
+      const image2Url = req.files.image2 ? await uploadToCloudinary(req.files.image2[0].path) : null;
+      const image3Url = req.files.image3 ? await uploadToCloudinary(req.files.image3[0].path) : null;
+
       const newPost = new Post({
         name,
         description,
         tags: tags?.split(",").map(tag => tag.trim()),
         category,
-       url: "/uploads/" + req.files?.image?.[0]?.filename,
-image2: req.files?.image2?.[0] ? "/uploads/" + req.files.image2[0].filename : null,
-image3: req.files?.image3?.[0] ? "/uploads/" + req.files.image3[0].filename : null,
+        url: imageUrl,
+        image2: image2Url,
+        image3: image3Url,
         createdBy: req.user._id,
         likes: [],
         bookmarks: [],
@@ -49,11 +63,11 @@ image3: req.files?.image3?.[0] ? "/uploads/" + req.files.image3[0].filename : nu
 
       await newPost.save();
       res.status(201).json({ message: "Post uploaded", post: newPost });
+
     } catch (err) {
       console.error("Upload error:", err);
       res.status(500).json({ error: "Server error during upload" });
     }
   }
 );
-
 module.exports = router;
