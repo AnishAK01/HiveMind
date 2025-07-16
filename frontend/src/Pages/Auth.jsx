@@ -118,7 +118,7 @@ const LoginRegister = () => {
     e.preventDefault();
     setError("");
     try {
-      const endpoint = isLogin ? "/auth/login" : "/auth/register";
+      const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register";
       const payload = isLogin ? {
         email: form.email,
         password: form.password
