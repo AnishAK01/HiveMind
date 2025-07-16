@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/api/users', require('./routes/auth.routes'));
+// app.use('/api/users', require('./routes/auth.routes'));
 app.use('/api/posts', require('./routes/post.routes'));
-// app.use('/api/users', require('./routes/user.routes'));
+app.use('/api/users', require('./routes/user.routes'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
