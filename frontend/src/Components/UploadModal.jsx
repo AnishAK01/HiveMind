@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/axios";
+import toast from "react-hot-toast"; // 🟢 Import here
 
 const UploadModal = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -40,15 +41,17 @@ const UploadModal = ({ onClose }) => {
     if (imageFiles.image2) data.append("image2", imageFiles.image2);
     if (imageFiles.image3) data.append("image3", imageFiles.image3);
 
+    const uploadToast = toast.loading("Uploading post...");
+
     try {
       await API.post("/posts/upload", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      alert("✅ UI post uploaded!");
+      toast.success("✅ Post uploaded!", { id: uploadToast });
       onClose();
     } catch (error) {
       console.error("Upload error:", error);
-      alert("❌ Upload failed");
+      toast.error("❌ Upload failed", { id: uploadToast });
     }
   };
 

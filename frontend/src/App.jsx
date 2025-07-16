@@ -18,6 +18,8 @@ import ImageGallery from './Components/Filteredgallery'
 import { AuthContext } from './context/AuthContext'
 import axios from 'axios';
 import AuthRedirectHandler from './utils/AuthRedirectHandler'
+import { Toaster } from 'react-hot-toast';
+
 function App() {
 
   const [loading, setLoading] = useState(true)
@@ -37,6 +39,7 @@ function App() {
   }
   return (
     <>
+     <Toaster position="top-right" reverseOrder={false} />
       <BrowserRouter>
 <ScrollToTop/>
 <AuthRedirectHandler/>
