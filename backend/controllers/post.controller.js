@@ -25,7 +25,7 @@ exports.getAllPosts = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-// Get posts by category
+
 exports.getPostsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
@@ -36,7 +36,7 @@ exports.getPostsByCategory = async (req, res) => {
   }
 };
 
-// Get posts by user
+
 exports.getPostsByUser = async (req, res) => {
   try {
     const posts = await Post.find({ createdBy: req.user._id }).populate("createdBy", "name profilePic");

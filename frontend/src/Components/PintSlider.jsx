@@ -51,7 +51,6 @@ const ImageSlider = ({ images = [] }) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Slides */}
       <div className="overflow-hidden">
         <motion.div
           key={currentIndex}
@@ -75,7 +74,6 @@ const ImageSlider = ({ images = [] }) => {
                 alt={`Slide ${idx}`}
                 className="w-full h-72 object-cover rounded-xl shadow-lg"
               />
-              {/* Overlay */}
               <div className="absolute bottom-0 bg-black bg-opacity-50 text-white p-3 w-full rounded-b-xl">
                 <div className="flex items-center mb-2">
                   <img
@@ -104,7 +102,6 @@ const ImageSlider = ({ images = [] }) => {
         </motion.div>
       </div>
 
-      {/* Left Arrow */}
       <motion.button
         whileHover={{ scale: 1.2, y: -5 }}
         className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition z-20"
@@ -113,7 +110,6 @@ const ImageSlider = ({ images = [] }) => {
         &#8592;
       </motion.button>
 
-      {/* Right Arrow */}
       <motion.button
         whileHover={{ scale: 1.2, y: -5 }}
         className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-40 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition z-20"

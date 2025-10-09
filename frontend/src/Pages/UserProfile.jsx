@@ -10,13 +10,13 @@ const UserProfile = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]); // 🔧 MISSING STATE
+  const [posts, setPosts] = useState([]); 
 
   const handleSectionClick = (section) => {
     setActiveSection(prev => (prev === section ? null : section));
   };
 
-  // ✅ Hook 1: Fetch user data
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -33,7 +33,7 @@ const UserProfile = () => {
     else setLoading(false);
   }, [user]);
 
-  // ✅ Hook 2: Fetch user posts
+  
   useEffect(() => {
     const fetchUserPosts = async () => {
       try {
@@ -48,7 +48,6 @@ const UserProfile = () => {
     if (user) fetchUserPosts();
   }, [user]);
 
-  // ⛔ return only AFTER hooks
   if (loading) return <p className='text-center mt-10'>Loading...</p>;
 
   if (!user) {
@@ -64,9 +63,7 @@ const UserProfile = () => {
     <div className='min-h-screen'>
       <Navbar />
 
-      {/* USER INFO */}
       <div className="max-w-5xl mx-auto mt-8 bg-white shadow-md rounded-lg p-6 flex flex-col md:flex-row justify-between items-center">
-        {/* Contact Info */}
         <div className="mb-6 md:mb-0">
           <ul className="space-y-2 text-gray-700">
             <li>📧 {userData?.email || 'Email not available'}</li>
@@ -76,7 +73,6 @@ const UserProfile = () => {
           </ul>
         </div>
 
-        {/* Profile Image & Name */}
         <div className="flex flex-col items-center">
           <img
             src={userData?.profilePic }
@@ -89,7 +85,6 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Followers Info */}
         <div className="flex gap-6 text-center">
           <div>
             <h2 className="font-semibold text-lg">Following</h2>
@@ -102,7 +97,6 @@ const UserProfile = () => {
         </div>
       </div>
 
-      {/* SECTION TOGGLE BUTTONS */}
       <div className="flex justify-center mt-6 space-x-4">
         {["ui", "posts", "saved"].map((section) => (
           <button
@@ -118,7 +112,6 @@ const UserProfile = () => {
         ))}
       </div>
 
-      {/* CONDITIONAL DISPLAY */}
       <div className="max-w-5xl mx-auto p-6">
         {activeSection === 'ui' && (
           <div>

@@ -2,13 +2,13 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-// Ensure uploads folder exists
+
 const uploadPath = path.join(__dirname, "../uploads");
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
 }
 
-// Storage config
+
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, uploadPath);
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
   },
 });
 
-// Allow only image files
+
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|gif|webp/;
   const isValidExt = allowedTypes.test(path.extname(file.originalname).toLowerCase());

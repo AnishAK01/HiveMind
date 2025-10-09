@@ -8,7 +8,6 @@ const StackedGallery = () => {
 
   return (
     <div className="p-4">
-      {/* COLLAPSED: STACKED VIEW */}
       {!expanded && (
         <div
           onClick={toggleGallery}
@@ -30,7 +29,7 @@ const StackedGallery = () => {
         </div>
       )}
 
-      {/* EXPANDED: FULL VIEW */}
+
       {expanded && (
         <div>
           <button

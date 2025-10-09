@@ -187,7 +187,7 @@ const PostInfo = () => {
               onClick={() => navigate('/postinfo', { state: { post: img } })}
             >
               <img
-                src={`http://localhost:5000${img.url}`}
+                src={img.url}
                 alt={`Post ${idx}`}
                 className="w-full h-auto rounded-lg object-cover max-h-60"
               />
@@ -213,7 +213,6 @@ const PostInfo = () => {
         </Masonry>
       </div>
 
-      {/* Heart Animation */}
       <style>{`
         @keyframes heart-pop {
           0% {

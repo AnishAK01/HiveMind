@@ -91,7 +91,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Upload Modal appears when clicked */}
       {showUploadModal && <UploadModal onClose={() => setShowUploadModal(false)} />}
     </>
   );

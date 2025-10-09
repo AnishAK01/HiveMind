@@ -40,19 +40,18 @@ const Banner = () => {
         />
       </AnimatePresence>
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex items-center px-10">
         <div className="text-white max-w-xl space-y-4">
-          {/* Tags */}
+        
          
 
-          {/* Title */}
+        
           <h1 className="text-4xl font-bold">{BannerDb[banner].title}</h1>
 
-          {/* Description */}
+        
           <p className="text-gray-300 text-sm leading-relaxed">{BannerDb[banner].desc}</p>
 
-          {/* Info cards */}
+          
           <div className="flex gap-6 mt-4">
             <div className="bg-black/60 px-4 py-2 rounded">
               <p className="text-xs text-gray-400">Rating</p>

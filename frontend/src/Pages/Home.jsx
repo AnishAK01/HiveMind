@@ -22,10 +22,8 @@ const Home = () => {
   };
     return (
         <div className="flex min-h-screen w-auto ml-16">
-            {/* Sidebar Navbar */}
             <Navbar />
 
-            {/* Main Content */}
             <div className="flex-1 flex flex-col border-red-700 border-solid border-7 p-2">
                 <span className='w-11/12 flex fixed items-center justify-evenly'>
                     <Search  />
@@ -51,9 +49,7 @@ const Home = () => {
                     </div>
 
 
-                    {/* This is the working Carousel now */}
                     <div className=" md:grid-cols-2 gap-8 p-6 ">
-                        {/* Pictures Section */}
                         <div className="carouselpint flex flex-col items-center bg-white bg-opacity-70 backdrop-blur-md rounded-2xl p-2 shadow-lg mb-3">
                             <h1 className="text-2xl font-bold mb-4 text-gray-800">Pictures</h1>
                             <ImageSlider images={PostsDb} />
@@ -64,7 +60,6 @@ const Home = () => {
                                                             </Link> 
                         </div>
 
-                        {/* User Interfaces Section */}
                         <div className="carouseldrib flex flex-col items-center bg-white bg-opacity-70 backdrop-blur-md rounded-2xl p-2 shadow-lg">
                             <h1 className="text-2xl font-bold mb-4 text-gray-800">User Interfaces</h1>
                             {/* Another carousel can come here */}

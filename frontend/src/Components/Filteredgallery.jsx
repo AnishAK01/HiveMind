@@ -6,7 +6,6 @@ import Search from './Search';
 const ImageGallery = () => {
   const [searchText, setSearchText] = useState(''); // Holds the search input
 
-  // Filter posts based on the search text (matching tags)
   const filteredPosts = PostsDb.filter(post =>
     post.tags.some(tag =>
       tag.toLowerCase().includes(searchText.toLowerCase()) // Case-insensitive match
@@ -15,10 +14,8 @@ const ImageGallery = () => {
 
   return (
     <div className="p-4">
-      {/* Search component for taking user input */}
       <Search onSearch={setSearchText} />
 
-      {/* Gallery of filtered images */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
@@ -43,7 +40,6 @@ const ImageGallery = () => {
             </div>
           ))
         ) : (
-          // Message when no posts are found based on the search text
           <p className="col-span-full text-center text-gray-500">No matching tags found.</p>
         )}
       </div>

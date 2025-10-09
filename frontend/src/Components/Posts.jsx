@@ -15,7 +15,6 @@ const Posts = ({ PostsDb }) => {
         500: 1
     };
 
-    // Track saved items by index
     const [savedPosts, setSavedPosts] = useState([]);
 
     const toggleSaved = (idx) => {
@@ -45,7 +44,6 @@ const Posts = ({ PostsDb }) => {
                             className="w-full h-auto rounded-md"
                         />
 
-                        {/* Hover overlay with buttons */}
                         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-evenly opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <button className="p-2 bg-red-600 text-white rounded-full shadow-md hover:bg-red-900">
                                 <a href={img.url} download> <DownloadIcon /></a>

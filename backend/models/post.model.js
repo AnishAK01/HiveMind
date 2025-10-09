@@ -21,7 +21,7 @@ const postSchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true, // ✅ Keep this since you already use `protect`
+    required: true,
   },
   likes: [{
     type: mongoose.Schema.Types.ObjectId,

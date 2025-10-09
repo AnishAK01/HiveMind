@@ -26,7 +26,7 @@ const Chat = () => {
 
   return (
     <div className="h-screen flex bg-yellow-200 ml-16">
-      {/* Sidebar */}<Navbar/>
+      <Navbar/>
       <div className="w-1/4 border-r bg-yellow-50 p-4">
         <h2 className="text-xl font-bold mb-4">Messages</h2>
         {usersMock.map((user) => (
@@ -50,7 +50,7 @@ const Chat = () => {
         ))}
       </div>
 
-      {/* Chat Window */}
+  
       <div className="w-3/4 flex flex-col justify-between bg-gray-100">
         <div className="p-4 border-b flex justify-between items-center bg-white shadow">
           <h3 className="text-lg font-semibold">{selectedUser.name}</h3>
@@ -59,7 +59,7 @@ const Chat = () => {
           </span>
         </div>
 
-        {/* Messages */}
+      
         <div className="p-4 space-y-4 overflow-y-auto flex-1 bg-yellow-100">
           {messages.map((msg, index) => (
             <div
@@ -75,7 +75,7 @@ const Chat = () => {
           ))}
         </div>
 
-        {/* Input */}
+       
         <div className="flex items-center p-4 border-t bg-white">
           <input
             type="text"

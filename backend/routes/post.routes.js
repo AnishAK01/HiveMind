@@ -39,7 +39,6 @@ router.post(
         const result = await cloudinary.uploader.upload(filePath, {
           folder: "hivemind_posts",
         });
-         // delete local file
         return result.secure_url;
       };
 

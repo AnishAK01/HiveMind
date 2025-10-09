@@ -12,7 +12,7 @@ const DribbblePostDetail = () => {
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
-  const post = state; // assuming full post object is passed via navigation
+  const post = state; 
 
   useEffect(() => {
     if (post && user) {

@@ -34,7 +34,7 @@ const PintTab = () => {
                     </span>
                 </span>
                 <Banner />
-{/* -               <Posts PostsDb={PostsDb} /> */}
+
               <Posts PostsDb={posts} />
             </div>
         </div>

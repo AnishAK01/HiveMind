@@ -78,7 +78,6 @@ const UploadModal = ({ onClose }) => {
             </button>
           </div>
 
-          {/* Inputs */}
           <input
             type="text"
             name="name"
@@ -126,7 +125,6 @@ const UploadModal = ({ onClose }) => {
             onChange={handleChange}
           />
 
-          {/* Actions */}
           <div className="flex justify-end gap-2">
             <button
               type="button"

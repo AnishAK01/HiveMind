@@ -7,7 +7,7 @@ const Search = ({ onSearch }) => {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      onSearch(input); // Submit the input when Enter is pressed
+      onSearch(input); 
     }
   };
 
