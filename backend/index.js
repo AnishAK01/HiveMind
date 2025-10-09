@@ -13,10 +13,17 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(cors({
+<<<<<<< HEAD
   origin: "http://localhost:5173"|| "https://hivemind-frontend.onrender.com", 
   credentials: true
 }));
 app.use(express.json()); 
+=======
+  origin:  "https://hivemind-frontend.onrender.com", 
+  credentials: true
+}));
+app.use(express.json()); // Body parser
+>>>>>>> 67a9bd5cf752f2db5e482475ec51872ba1dfed69
 
 connectDB(); 
 
