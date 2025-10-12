@@ -11,12 +11,24 @@ const userSchema = new mongoose.Schema({
   },
 
   email: {
-    type: String,
-    required: true,
-    unique: true,
-    lowercase: true
+     type: String,
+  required: true,
+  unique: true,
+  lowercase: true,
+  match: [/.+@.+\..+/, "Please enter a valid email"]
   },
-
+  username: {
+    type: String,
+  required: true,
+  unique: true,
+  lowercase: true,
+  trim: true
+  },
+  role: {
+    type: String,
+  required: true,
+  enum: ["student", "designer", "developer"]
+  },
   password: {
     type: String,
     required: true
@@ -25,7 +37,7 @@ const userSchema = new mongoose.Schema({
    profilePic: {
     type: String,
     default: function () {
-      return `https://i.pravatar.cc/150?u=${this._id}`;
+      return `https://avatar.iran.liara.run/public${this._id}`;
     }
   },
   bio: {

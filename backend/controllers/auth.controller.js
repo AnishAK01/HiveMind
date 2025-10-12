@@ -7,18 +7,36 @@ const generateToken = (id) => {
   });
 };
 
+// REGISTER
 exports.registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
   try {
-    let user = await User.findOne({ email: req.body.email });
-    if (user) return res.status(400).json({ message: "User already exists" });
+    const { name, email, username, role, password } = req.body;
 
-    user = await User.create({ name, email, password });
+    if (!name || !email || !username || !role || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const existingEmail = await User.findOne({ email });
+    const existingUsername = await User.findOne({ username });
+    if (existingEmail || existingUsername) {
+      return res.status(400).json({ message: "Email or username already exists" });
+    }
+
+    const user = await User.create({
+      name,
+      email,
+      username,
+      role,
+      password
+    });
 
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
+      username: user.username,
+      role: user.role.toLowerCase().trim(),
+     // still returned if default is set in schema
       token: generateToken(user._id),
     });
   } catch (error) {
@@ -26,10 +44,19 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+// LOGIN
 exports.loginUser = async (req, res) => {
-  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
+    const { username, password } = req.body;
+
+    if (!password || ( !username)) {
+      return res.status(400).json({ message: "Email or username and password are required" });
+    }
+
+    const user = await User.findOne({
+      $or: [ { username }]
+    });
+
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
@@ -38,6 +65,9 @@ exports.loginUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      username: user.username,
+      role: user.role,
+      profilePic: user.profilePic,
       token: generateToken(user._id),
     });
   } catch (error) {
