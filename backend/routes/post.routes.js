@@ -22,6 +22,17 @@ router.post("/create", protect, createPost);
 router.put("/like/:id", protect, likePost);
 router.put("/bookmark/:id", protect, bookmarkPost);
 
+router.get("/search", async (req, res) => {
+  const { q } = req.query;
+  try {
+    const images = await Image.find({
+      tags: { $regex: q, $options: "i" }
+    }).select("url tags");
+    res.json(images);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 router.post(
   "/upload",

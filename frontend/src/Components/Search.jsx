@@ -20,7 +20,7 @@ const Search = ({ onSearch }) => {
         onChange={(e) => setInput(e.target.value)} // Update input on change
         onKeyDown={handleKeyDown} // Handle Enter key
         className="w-full m-2  bg-transparent outline-none"
-        placeholder="Search For Image"
+        placeholder="Search"
       />
     </div>
   );
