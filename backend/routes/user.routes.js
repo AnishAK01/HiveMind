@@ -12,7 +12,7 @@ router.get("/search", async (req, res) => {
   try {
     const users = await User.find({
       username: { $regex: q, $options: "i" }
-    }).select("name username role profilePic");
+    }).select("name username role profilePic email");
     users.forEach(user => {
   console.log(`${user.name}, ${user.username}, ${user.role}`);
 });

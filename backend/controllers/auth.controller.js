@@ -36,7 +36,7 @@ exports.registerUser = async (req, res) => {
       email: user.email,
       username: user.username,
       role: user.role.toLowerCase().trim(),
-     // still returned if default is set in schema
+     
       token: generateToken(user._id),
     });
   } catch (error) {

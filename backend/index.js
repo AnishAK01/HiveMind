@@ -6,6 +6,7 @@ const connectDB = require('./config');
 const authRoutes = require('./routes/auth.routes');
 const postRoutes = require('./routes/post.routes');
 const userRoutes = require('./routes/user.routes');
+const hiveRoutes = require('./routes/hive.routes');
 const path = require('path');
 
 dotenv.config();
@@ -41,6 +42,8 @@ app.get('/', (req, res) => {
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/posts', require('./routes/post.routes'));
 app.use('/api/users', require('./routes/user.routes'));
+app.use('/api/hive', require('./routes/hive.routes'));
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

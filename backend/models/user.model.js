@@ -11,30 +11,30 @@ const userSchema = new mongoose.Schema({
   },
 
   email: {
-     type: String,
-  required: true,
-  unique: true,
-  lowercase: true,
-  match: [/.+@.+\..+/, "Please enter a valid email"]
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    match: [/.+@.+\..+/, "Please enter a valid email"]
   },
   username: {
     type: String,
-  required: true,
-  unique: true,
-  lowercase: true,
-  trim: true
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
   },
   role: {
     type: String,
-  required: true,
-  enum: ["student", "designer", "developer"]
+    required: true,
+    enum: ["student", "designer", "developer"]
   },
   password: {
     type: String,
     required: true
   },
 
-   profilePic: {
+  profilePic: {
     type: String,
     default: function () {
       return `https://avatar.iran.liara.run/public${this._id}`;
@@ -54,6 +54,8 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Post"
   }],
+  hive: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+
 
   createdAt: {
     type: Date,
